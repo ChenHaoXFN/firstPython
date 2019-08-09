@@ -1,0 +1,3 @@
+import pythonfunction.ch_01_function
+
+pythonfunction.ch_01_function.multiple_table()
