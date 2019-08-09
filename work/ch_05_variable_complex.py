@@ -11,4 +11,9 @@ print((f - i))
 
 print((f - True))
 
+# 拼接字符串
 firstName = "张"
+lastName = "三"
+print((firstName + lastName))
+
+print((firstName + lastName) * 5)
