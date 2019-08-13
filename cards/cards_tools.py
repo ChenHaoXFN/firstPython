@@ -1,3 +1,4 @@
+#! /usr/local/bin/python3
 # 名片处理工具类
 star_str = "*" * 40
 
@@ -49,21 +50,29 @@ def get_all_card():
     print(star_str)
 
 
+def check_null(source, msg):
+    if msg == "":
+        return source
+    else:
+        return msg;
+
+
 def update_card(card):
+    """
+    更新 card
+
+    :param card: 入参需要更新的card source
+    """
     card_list.remove(card)
     # 修改操作
-    new_name = input("你想修改为：（回车不修改）")
-    new_age = input("你想修改为：（回车不修改）")
-    new_sex = input("你想修改为：（回车不修改）")
-    new_phone = input("你想修改为：（回车不修改）")
-    new_qq = input("你想修改为：（回车不修改）")
-    card["name"] = new_name if new_name != "" else None
-    card["age"] = new_age if new_age != "" else None
-    card["sex"] = new_sex if new_sex != "" else None
-    card["phone"] = new_phone if new_phone != "" else None
-    card["qq"] = new_qq if new_qq != "" else None
-    print("%s 修改完毕" % card["name"])
-    card_list.append(card)
+    new_name = check_null(card["name"], input("你想修改为：（回车不修改）"))
+    new_age = check_null(card["age"], input("你想修改为：（回车不修改）"))
+    new_sex = check_null(card["sex"], input("你想修改为：（回车不修改）"))
+    new_phone = check_null(card["phone"], input("你想修改为：（回车不修改）"))
+    new_qq = check_null(card["qq"], input("你想修改为：（回车不修改）"))
+    card_dir = {"name": new_name, "age": new_age, "sex": new_sex, "phone": new_phone, "qq": new_qq}
+    print("%s 修改完毕" % card_dir["name"])
+    card_list.append(card_dir)
 
 
 def del_card(card):

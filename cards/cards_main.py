@@ -1,3 +1,6 @@
+#! /usr/local/bin/python3
+
+
 import cards.cards_tools
 
 # 名片管理主程序
@@ -18,8 +21,10 @@ while True:
     elif check_menu == "3":
         # 制定查看
         card = cards.cards_tools.get_one_by_name()
-        if card != None:
+        if card is None:
             # 其他操作菜单
+            None
+        else:
             cards.cards_tools.update_check(card)
 
     elif check_menu == "0":
